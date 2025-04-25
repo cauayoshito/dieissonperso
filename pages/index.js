@@ -243,9 +243,12 @@ export default function Home() {
                       “Eliminei 12kg com os treinos do Robert. Mudou minha
                       vida!”
                     </p>
-                    <button className="mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm">
+                    <a
+                      href="#planos"
+                      className="mt-4 inline-block bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm transition"
+                    >
                       Ver plano semelhante
-                    </button>
+                    </a>
                   </div>
                 </div>
 
@@ -262,9 +265,12 @@ export default function Home() {
                     <p className="text-sm text-gray-300 italic">
                       “Voltei a treinar aos 30 anos e nunca me senti tão bem!”
                     </p>
-                    <button className="mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm">
+                    <a
+                      href="#planos"
+                      className="mt-4 inline-block bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm transition"
+                    >
                       Ver treino adaptado
-                    </button>
+                    </a>
                   </div>
                 </div>
 
@@ -284,9 +290,12 @@ export default function Home() {
                       “Foco, adaptação e resultado rápido. Superou minhas
                       expectativas.”
                     </p>
-                    <button className="mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm">
+                    <a
+                      href="#planos"
+                      className="mt-4 inline-block bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm transition"
+                    >
                       Conheça o método
-                    </button>
+                    </a>
                   </div>
                 </div>
 
@@ -304,9 +313,12 @@ export default function Home() {
                       “Emagreci, ganhei disposição e autoestima. Treinar com
                       Robert foi essencial.”
                     </p>
-                    <button className="mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm">
+                    <a
+                      href="#planos"
+                      className="mt-4 inline-block bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm transition"
+                    >
                       Veja o plano usado
-                    </button>
+                    </a>
                   </div>
                 </div>
 
@@ -326,9 +338,12 @@ export default function Home() {
                       “Resultados em poucas semanas. Acompanhamento de verdade
                       faz diferença.”
                     </p>
-                    <button className="mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm">
+                    <a
+                      href="#planos"
+                      className="mt-4 inline-block bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm transition"
+                    >
                       Ver plano personalizado
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -342,6 +357,61 @@ export default function Home() {
               Escolha o plano ideal
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {/* Card 1 - Online */}
+              <div className="bg-gray-900 rounded-xl shadow-lg p-6 border border-green-600">
+                <h3 className="text-2xl font-semibold mb-4 text-green-400">
+                  Consultoria Online
+                </h3>
+                <p className="text-gray-300 mb-4">
+                  • Planilha de treinamento personalizada de acordo com seu
+                  objetivo
+                  <br />• Anamnese e avaliação postural
+                  <br />• Treino via app com vídeos e explicações
+                  <br />• Suporte direto com Robert pela plataforma
+                </p>
+                <p className="text-green-400 font-bold text-xl mb-4">
+                  A partir de R$ 149,90/mês
+                </p>
+                <a
+                  href="https://wa.me/5571981977447?text=Olá%2C+tenho+interesse+na+Consultoria+Online+a+partir+de+R%24149%2C90+mensal."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full transition"
+                >
+                  Quero esse plano
+                </a>
+              </div>
+
+              {/* Card 2 - Presencial */}
+              <div className="bg-gray-900 rounded-xl shadow-lg p-6 border border-green-600">
+                <h3 className="text-2xl font-semibold mb-4 text-green-400">
+                  Consultoria Presencial
+                </h3>
+                <p className="text-gray-300 mb-4">
+                  • Atendimento presencial (academia ou condomínio)
+                  <br />• Anamnese e avaliação postural
+                  <br />• Treino disponível no aplicativo
+                  <br />• Atenção especial às alterações posturais e
+                  biomecânicas
+                  <br />• Ideal para quem precisa de motivação
+                </p>
+                <p className="text-xs text-gray-400 italic mb-2">
+                  *Sujeito a valor adicional conforme a academia.
+                </p>
+                <p className="text-green-400 font-bold text-xl mb-4">
+                  A partir de R$ 599/mês
+                </p>
+                <a
+                  href="https://wa.me/5571981977447?text=Oi+Robert%2C+quero+falar+sobre+o+Plano+Presencial+a+partir+de+R%24599%2C00%2Fmensal."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full transition"
+                >
+                  Quero esse plano
+                </a>
+              </div>
+
+              {/* Card 3 - Premium */}
               <div className="bg-green-600 rounded-xl shadow-xl p-6 border-4 border-green-300">
                 <h3 className="text-2xl font-semibold mb-4 text-white">
                   Consultoria Premium
@@ -349,14 +419,10 @@ export default function Home() {
                 <p className="text-white mb-4">
                   • Planilha de treinamento personalizada de acordo com seu
                   objetivo
-                  <br />
-                  • Anamnese e avaliação postural
-                  <br />
-                  • Treino via app com vídeos e explicações
-                  <br />
-                  • Suporte direto com Robert pela plataforma
-                  <br />
-                  • Guia para emagrecimento e manutenção de massa muscular
+                  <br />• Anamnese e avaliação postural
+                  <br />• Treino via app com vídeos e explicações
+                  <br />• Suporte direto com Robert pela plataforma
+                  <br />• Guia para emagrecimento e manutenção de massa muscular
                   <br />• Consulta Ortomolecular online + suporte de 30 dias
                 </p>
                 <p className="text-xs text-white/70 italic mb-2">
@@ -377,74 +443,27 @@ export default function Home() {
                   Quero esse plano
                 </a>
               </div>
-
-              <div className="bg-gray-900 rounded-xl shadow-lg p-6 border border-green-600">
-                <h3 className="text-2xl font-semibold mb-4 text-green-400">
-                  Consultoria Online
-                </h3>
-                <p className="text-gray-300 mb-4">
-                  • Planilha de treinamento personalizada de acordo com seu
-                  objetivo
-                  <br />
-                  • Anamnese e avaliação postural
-                  <br />
-                  • Treino via app com vídeos e explicações
-                  <br />• Suporte direto com Robert pela plataforma
-                </p>
-                <p className="text-green-400 font-bold text-xl mb-4">
-                  A partir de R$ 149,90/mês
-                </p>
-                <a
-                  href="https://wa.me/5571981977447?text=Olá%2C+tenho+interesse+na+Consultoria+Online+a+partir+de+R%24149%2C90+mensal."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full transition"
-                >
-                  Quero esse plano
-                </a>
-              </div>
-
-              <div className="bg-gray-900 rounded-xl shadow-lg p-6 border border-green-600">
-                <h3 className="text-2xl font-semibold mb-4 text-green-400">
-                  Consultoria Presencial
-                </h3>
-                <p className="text-gray-300 mb-4">
-                  • Atendimento presencial (academia* ou condomínio)
-                  <br />
-                  • Anamnese e avaliação postural
-                  <br />
-                  • Treino disponível no aplicativo
-                  <br />
-                  • Atenção especial às alterações posturais e biomecânicas
-                  <br />• Ideal para quem precisa de motivação
-                </p>
-                <p className="text-xs text-gray-400 italic mb-2">
-                  *Sujeito a valor adicional conforme a academia.
-                </p>
-                <p className="text-green-400 font-bold text-xl mb-4">
-                  A partir de R$ 599/mês
-                </p>
-                <a
-                  href="https://wa.me/5571981977447?text=Oi+Robert%2C+quero+falar+sobre+o+Plano+Presencial+a+partir+de+R%24599%2C00%2Fmensal."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-full transition"
-                >
-                  Quero esse plano
-                </a>
-              </div>
             </div>
           </section>
           <section className="py-20 px-6 bg-gray-950 text-white relative">
             <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-              <div className="flex justify-center md:justify-start">
-                <Image
-                  src="/images/consulta-maria-paula.jpg"
-                  alt="Maria Paula Costa - Fisioterapia e Estética"
-                  width={400}
-                  height={400}
-                  className="rounded-xl object-cover shadow-lg border border-green-400"
-                />
+              <div className="relative flex justify-center md:justify-start">
+                <div className="absolute w-64 h-6 bg-green-500 opacity-30 blur-2xl rounded-full bottom-0 z-0" />
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="bg-[rgba(0,0,0,0.0)] backdrop-blur-sm p-4 rounded-2xl z-10"
+                >
+                  <Image
+                    src="/images/consulta-maria-paula.png"
+                    alt="Maria Paula Costa"
+                    width={400}
+                    height={400}
+                    className="rounded-2xl drop-shadow-[0_0_40px_#22c55e] bg-transparent"
+                    priority
+                  />
+                </motion.div>
               </div>
 
               <div className="text-center md:text-left">
@@ -452,15 +471,28 @@ export default function Home() {
                   Consulta Ortomolecular Personalizada
                 </h2>
                 <p className="text-gray-300 mb-6 text-lg">
-                  Com a especialista <strong>Maria Paula Costa</strong>, essa
-                  consulta é focada em ajustar sua suplementação conforme seus
-                  objetivos: emagrecimento, hipertrofia, manutenção, recuperação
-                  ou performance. Inclui
-                  <strong> suporte de 30 dias</strong> após a consulta!
+                  Sou <strong>Maria Paula</strong>, fisioterapeuta com
+                  especialização em Estética Avançada e Ortomolecular. Minha
+                  missão vai além da estética: ajudo pessoas a resgatarem sua
+                  autoestima — com saúde e individualidade.
+                  <br />
+                  <br />
+                  Na vertente ortomolecular do meu trabalho, aplico uma
+                  abordagem integrativa para otimizar emagrecimento, hipertrofia
+                  e performance. Através da análise dos desequilíbrios
+                  bioquímicos e metabólicos, atuo na regulação hormonal, no
+                  controle da inflamação, na melhora da absorção de nutrientes
+                  essenciais, na resposta metabólica e imunológica.
+                  <br />
+                  <br />
+                  Meu objetivo é alinhar estética e saúde. Cada protocolo é
+                  desenhado sob medida, respeitando as necessidades de cada
+                  cliente, porque resultados extraordinários não nascem do acaso
+                  — nascem da estratégia certa.
                 </p>
-                <div className="text-sm text-gray-400 italic mb-6">
-                  *Serviço incluso no plano premium ou disponível separadamente.
-                </div>
+                <p className="text-green-400 font-semibold text-sm mb-4">
+                  CREFITO 410484-F
+                </p>
                 <motion.a
                   href="https://wa.me/5571981977447"
                   whileHover={{ scale: 1.05 }}
