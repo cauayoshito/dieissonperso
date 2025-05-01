@@ -67,10 +67,8 @@ export default function Home() {
               href="#faq"
               className="text-white hover:text-green-400 transition flex items-center gap-1"
             >
-              <HelpCircle size={18} />
-              FAQ
+              <HelpCircle size={18} /> FAQ
             </a>
-
             <a
               href="#contato"
               className="text-white hover:text-green-400 transition"
@@ -118,10 +116,8 @@ export default function Home() {
               className="block text-white hover:text-green-400 flex justify-center items-center gap-1"
               onClick={() => setMenuOpen(false)}
             >
-              <HelpCircle size={18} />
-              FAQ
+              <HelpCircle size={18} /> FAQ
             </a>
-
             <a
               href="#contato"
               className="block text-white hover:text-green-400"
@@ -174,21 +170,22 @@ export default function Home() {
                   Conheça o plano ideal pra você
                 </motion.a>
               </div>
+
               <div className="relative flex justify-center md:justify-end">
-                <div className="absolute bottom-0 w-64 h-6 bg-green-500 opacity-30 blur-2xl rounded-full z-0"></div>
+                <div className="absolute bottom-0 w-80 h-10 bg-green-500 opacity-30 blur-3xl rounded-full z-0" />
 
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="bg-[rgba(0,0,0,0.4)] backdrop-blur-sm p-4 rounded-2xl z-10"
+                  className="bg-[rgba(0,0,0,0.2)] backdrop-blur-sm p-6 rounded-2xl z-10"
                 >
                   <Image
                     src="/images/foto-robert.png"
                     alt="Robert Emanuel"
-                    width={400}
-                    height={400}
-                    className="rounded-2xl object-cover drop-shadow-[0_0_40px_#22c55e]"
+                    width={450}
+                    height={450}
+                    className="rounded-2xl object-cover drop-shadow-[0_0_50px_#22c55e]"
                     priority
                   />
                 </motion.div>
@@ -201,17 +198,16 @@ export default function Home() {
                 Quem é Robert Emanuel?
               </h2>
               <p className="text-gray-300 text-lg">
-                Sou Robert, bacharel em Educação Física com especialização em
+                Sou Robert, bacharel em Educação Física, especializado em
                 Biomecânica Aplicada ao Exercício. Com 25 anos e mais de 7 anos
-                de experiência prática na área de musculação, dedico minha
-                carreira à aplicação de princípios científicos para otimizar o
-                desempenho físico e promover a saúde de meus alunos Acredito que
-                um treino eficiente vai muito além de levantar pesos: ele
-                envolve conhecimento, técnica, constância e, acima de tudo,
-                propósito. E é exatamente isso que busco proporcionar a cada
-                pessoa que confia no meu trabalho. Se você quer treinar com
-                segurança, resultado e acompanhamento de verdade, seja
-                bem-vindo, vamos evoluir juntos!
+                de experiência prática na musculação, dedico minha carreira à
+                aplicação de princípios científicos para otimizar o desempenho
+                físico e promover saúde. Acredito que treinar vai muito além de
+                levantar pesos: envolve conhecimento, técnica, constância e
+                propósito. É isso que busco oferecer a cada aluno que confia no
+                meu trabalho. Se você quer treinar com segurança, conquistar
+                resultados reais e ter acompanhamento de verdade, seja
+                bem-vindo. Vamos evoluir juntos!
               </p>
               <p className="text-green-400 mt-4 font-medium">
                 CREF 016317-G/BA
