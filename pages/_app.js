@@ -1,29 +1,13 @@
-import Script from "next/script";
+// pages/_app.js
 import "../styles/globals.css";
+import { SessionProvider } from "next-auth/react";
+import Navbar from "../components/Navbar";
 
-function MyApp({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
   return (
-    <>
-      {/* Google Analytics */}
-      <Script
-        strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-WW63DW9GKS"
-      />
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-WW63DW9GKS');
-          `,
-        }}
-      />
+    <SessionProvider session={pageProps.session}>
+      <Navbar />
       <Component {...pageProps} />
-    </>
+    </SessionProvider>
   );
 }
-
-export default MyApp;
