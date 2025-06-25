@@ -1,40 +1,36 @@
 import NextAuth from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 export default NextAuth({
-  // 1) Habilita o login por e-mail/senha
   providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
+
     CredentialsProvider({
-      name: "Demo Account",
+      name: "Credenciais",
       credentials: {
-        email: {
-          label: "E-mail",
-          type: "email",
-          placeholder: "demo@malsa.com.br",
-        },
+        email: { label: "Email", type: "email" },
         password: { label: "Senha", type: "password" },
       },
       async authorize(credentials) {
-        // 2) Aqui você “autentica” o usuário demo
-        if (
-          credentials.email === "demo@malsa.com.br" &&
-          credentials.password === "Malsa123!"
-        ) {
-          // devolve qualquer objeto que represente o usuário
-          return { id: 1, name: "Usuário Demo", email: credentials.email };
+        // Aqui é onde você valida manualmente o usuário
+        const { email, password } = credentials;
+
+        // Exemplo simples (você pode validar com banco depois)
+        if (email === "admin@teste.com" && password === "123456") {
+          return { id: 1, name: "Admin", email: "admin@teste.com" };
         }
-        // retorna null para falha de login
+
+        // Retorna null se falhar
         return null;
       },
     }),
   ],
-
-  // 3) Ajustes de sessão / página de login
-  session: { strategy: "jwt" },
   pages: {
-    signIn: "/login", // sua página customizada de login
+    signIn: "/login", // redireciona erro/sucesso para sua página de login
   },
-
-  // 4) Segredo pra criptografar seu token JWT
-  secret: process.env.NEXTAUTH_SECRET || "mude-essa-string-para-algo-seguro",
+  secret: process.env.NEXTAUTH_SECRET,
 });

@@ -1,77 +1,77 @@
 // pages/login.js
+import { getCsrfToken, signIn } from "next-auth/react";
 import { useState } from "react";
-import Head from "next/head";
-import { signIn } from "next-auth/react";
 
-export default function LoginPage() {
+export default function Login({ csrfToken }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await signIn("credentials", { email, password, callbackUrl: "/" });
-  };
-
   return (
-    <>
-      <Head>
-        <title>Entrar | Malsa Investimentos</title>
-      </Head>
-      <div className="min-h-screen flex items-center justify-center bg-primary/10">
-        <form
-          onSubmit={handleSubmit}
-          className="bg-white dark:bg-primary max-w-md w-full p-8 rounded-lg shadow-lg"
+    <div className="min-h-screen bg-gray-950 flex items-center justify-center px-4">
+      <div className="max-w-md w-full bg-gray-900 p-8 rounded-lg space-y-6">
+        <h1 className="text-2xl font-bold text-white text-center">
+          Faça seu login
+        </h1>
+
+        {/* Botão Google */}
+        <button
+          onClick={() => signIn("google", { callbackUrl: "/painel" })}
+          className="w-full flex justify-center items-center gap-2 bg-white text-gray-900 py-2 rounded hover:bg-gray-100 transition"
         >
-          <h1 className="text-2xl font-bold text-center mb-6 text-primary">
-            Acesse sua conta
-          </h1>
+          Entrar com Google
+        </button>
 
-          <label className="block mb-1 text-sm font-medium text-gray-700">
-            Email
-          </label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="seu@exemplo.com"
-            className="
-              w-full mb-4 px-4 py-3
-              bg-white bg-opacity-20 placeholder-gray-400
-              border border-gray-600 rounded-lg
-              focus:bg-opacity-40 focus:border-accent
-              focus:ring-2 focus:ring-accent/50
-              transition outline-none
-            "
-            required
-          />
+        <div className="border-t border-gray-700"></div>
 
-          <label className="block mb-1 text-sm font-medium text-gray-700">
-            Senha
-          </label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="••••••••"
-            className="
-              w-full mb-6 px-4 py-3
-              bg-white bg-opacity-20 placeholder-gray-400
-              border border-gray-600 rounded-lg
-              focus:bg-opacity-40 focus:border-accent
-              focus:ring-2 focus:ring-accent/50
-              transition outline-none
-            "
-            required
-          />
+        {/* Formulário de Credenciais */}
+        <form
+          method="post"
+          action="/api/auth/callback/credentials"
+          className="space-y-4"
+        >
+          <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
+
+          <div>
+            <label className="block text-gray-300 mb-1">E-mail</label>
+            <input
+              name="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-3 py-2 rounded bg-gray-800 text-white focus:outline-none"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-gray-300 mb-1">Senha</label>
+            <input
+              name="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-3 py-2 rounded bg-gray-800 text-white focus:outline-none"
+              required
+            />
+          </div>
 
           <button
             type="submit"
-            className="w-full bg-accent text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition"
+            className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded transition"
           >
-            Entrar
+            Entrar com Credenciais
           </button>
         </form>
       </div>
-    </>
+    </div>
   );
+}
+
+// Precisamos do CSRF token para o provider de credenciais
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      csrfToken: await getCsrfToken(context),
+    },
+  };
 }
