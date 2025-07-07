@@ -40,5 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# ignorar vídeos pesados
-/public/videos/*
+# Ignorar vídeos grandes
+public/videos/*.mp4
