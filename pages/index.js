@@ -394,8 +394,26 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </section>
 
+          {/* 🔥 NOVO BLOCO DE SERVIÇO DE R$60 */}
+          <div className="mt-12 text-center max-w-2xl mx-auto bg-gray-900 border border-green-700 rounded-xl p-6 shadow-lg">
+            <p className="text-lg text-white mb-2">
+              Quer apenas acesso aos vídeos da plataforma sem plano
+              personalizado?
+            </p>
+            <p className="text-xl font-bold text-green-400 mb-4">
+              Acesso completo por apenas R$ 60/mês
+            </p>
+            <a
+              href="https://wa.me/5571997012010?text=Olá%2C+tenho+interesse+em+assinar+apenas+o+acesso+aos+vídeos+da+plataforma+por+R%24+60%2Fmês"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-full transition"
+            >
+              Assinar acesso à plataforma
+            </a>
+          </div>
+        </section>
         {/* === FAQ ACORDION === */}
         <section id="faq" className="py-20 px-6 bg-gray-950 text-white">
           <div className="max-w-4xl mx-auto">

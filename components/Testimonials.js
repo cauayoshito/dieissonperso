@@ -3,54 +3,62 @@ import "keen-slider/keen-slider.min.css";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-// Apenas um exemplo de 3 depoimentos:
-const TESTIMONIALS = [
-  { type: "video", src: "/videos/trailer.mp4", alt: "Alunos em ação" },
-  { type: "image", src: "/images/antes-depois.jpg", alt: "Antes e Depois" },
+const testimonials = [
   {
-    type: "image",
-    src: "/images/personal-aluno.jpg",
-    alt: "Dieisson com aluno",
+    type: "mockup",
+    videoSrc: "/videos/dd-perso.mp4",
+    alt: "Dieisson explicando o método",
   },
 ];
 
 export default function Testimonials() {
-  const [ref] = useKeenSlider({
+  const [sliderRef] = useKeenSlider({
     loop: true,
     slides: { perView: 1, spacing: 16 },
   });
 
   return (
-    <section id="depoimentos" className="py-20 bg-gray-800 text-white">
-      <h2 className="text-3xl font-bold text-center mb-8">
-        O que dizem nossos alunos
-      </h2>
-      <div ref={ref} className="keen-slider max-w-4xl mx-auto">
-        {TESTIMONIALS.map((item, idx) => (
-          <motion.div
-            key={idx}
-            className="keen-slider__slide flex justify-center"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: idx * 0.2 }}
-          >
-            {item.type === "video" ? (
-              <video
-                src={item.src}
-                controls
-                className="rounded-xl shadow-lg max-h-96"
-              />
-            ) : (
-              <Image
-                src={item.src}
-                alt={item.alt}
-                width={600}
-                height={350}
-                className="rounded-xl shadow-lg object-cover"
-              />
-            )}
-          </motion.div>
-        ))}
+    <section id="resultados" className="py-20 bg-black text-white">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-12 text-green-400">
+          Resultados que falam por si
+        </h2>
+
+        <div ref={sliderRef} className="keen-slider max-w-3xl mx-auto">
+          {testimonials.map((item, index) => (
+            <motion.div
+              key={index}
+              className="keen-slider__slide flex justify-center items-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+            >
+              {/* Mockup com vídeo embutido - telas md+ */}
+              <div className="hidden md:block relative w-[360px] h-[740px]">
+                <video
+                  src={item.videoSrc}
+                  controls
+                  playsInline
+                  className="absolute top-[8%] left-[10%] w-[80%] h-[84%] object-cover rounded-[24px] z-10"
+                />
+              </div>
+
+              {/* Mobile: só o vídeo */}
+              <div className="md:hidden w-full flex justify-center">
+                <video
+                  src={item.videoSrc}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  className="rounded-xl max-w-[360px] shadow-lg"
+                />
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
