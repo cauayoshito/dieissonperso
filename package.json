@@ -6,7 +6,7 @@
     "dev": "next dev",
     "start": "next start",
     "build": "next build",
-    "deploy": "vercel --prod"
+    "export": "next export"
   },
   "dependencies": {
     "@tsparticles/engine": "^3.8.1",
