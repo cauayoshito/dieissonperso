@@ -6,8 +6,12 @@ body {
   @apply bg-primary text-white;
 }
 
+html,
+body {
+  @apply overflow-x-hidden;
+}
+
 header img {
-  /* garante que a logo nunca extrapole o container */
   max-width: 100%;
   height: auto;
 }
