@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const testimonials = [
   {
     type: "mockup",
-   videoSrc: "/videos/pre-aquecimento.mp4"
+    videoSrc: "/videos/mockup.mp4",
     alt: "Dieisson explicando o método",
   },
 ];
