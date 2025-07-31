@@ -4,8 +4,9 @@ import { ChevronRight, Instagram } from "lucide-react";
 import { BsWhatsapp } from "react-icons/bs";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import DashboardPreview from "@/components/DashboardPreview";
 import VideoPreview from "@/components/VideoPreview";
@@ -29,6 +30,20 @@ export default function Home() {
       "(min-width: 1024px)": { perView: 3.2, spacing: 24 },
     },
   });
+
+  const images = [
+    "/images/personal.jpg",
+    "/images/dieisson2.jpg",
+    "/images/dieisson3.jpg",
+  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
@@ -88,7 +103,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Imagem com animação */}
+            {/* Carrossel com animação */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -96,13 +111,21 @@ export default function Home() {
               className="relative flex justify-center md:justify-end"
             >
               <div className="absolute bottom-0 w-64 h-6 bg-green-500 opacity-30 blur-2xl rounded-full z-0" />
-              <Image
-                src="/images/personal.jpg"
-                alt="Dieisson Vasques demonstrando alongamento"
-                width={400}
-                height={400}
-                className="relative z-10 rounded-2xl drop-shadow-[0_0_40px_#22c55e] object-cover"
-              />
+
+              <div className="relative w-[400px] h-[400px] rounded-2xl overflow-hidden z-10">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={images[currentIndex]}
+                    src={images[currentIndex]}
+                    alt={`Transformação ${currentIndex + 1}`}
+                    className="w-full h-full object-cover rounded-2xl drop-shadow-[0_0_40px_#22c55e]"
+                    initial={{ opacity: 0, x: 80 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -80 }}
+                    transition={{ duration: 0.5 }}
+                  />
+                </AnimatePresence>
+              </div>
             </motion.div>
           </div>
         </section>
@@ -122,6 +145,19 @@ export default function Home() {
               Treinamento Funcional pelo CFSC (Certified Functional Strength
               Coach) e Instrutor de Hatha Yoga.
             </p>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-6">
+              <p className="text-lg text-green-400 font-semibold">
+                CREF: 033808-G/RS
+              </p>
+              <a
+                href="https://drive.google.com/drive/folders/1uWZzzR490K2HIZZaAaFSosxp3VxM-s6v?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-full transition"
+              >
+                Ver Certificados e Diplomas
+              </a>
+            </div>
           </div>
         </section>
 
