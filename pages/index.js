@@ -56,7 +56,7 @@ export default function Home() {
       </Head>
 
       <Header />
-      <main className="pt-24 bg-gray-950 text-white">
+      <main className="pt-32 bg-gray-950 text-white">
         {/* === HERO === */}
         <section
           id="hero"
@@ -235,43 +235,43 @@ export default function Home() {
               <div ref={sliderRefCom} className="keen-slider px-4">
                 {[
                   {
-                    src: "/videos/trailer.mp4",
+                    src: "trailer.mp4",
                     author: "Gustavo",
                     quote: "Sensacional esse HIIT, me deu um gás incrível!",
                   },
                   {
-                    src: "/videos/pre.mp4",
+                    src: "pre.mp4",
                     author: "Solineide",
                     quote: "Minha mobilidade nunca foi tão boa.",
                   },
                   {
-                    src: "/videos/pre2.mp4",
+                    src: "pre2.mp4",
                     author: "Igor",
                     quote: "Excelente para força e coordenação.",
                   },
                   {
-                    src: "/videos/funcional.mp4",
+                    src: "funcional.mp4",
                     author: "Diego",
                     quote:
                       "Recuperei meu condicionamento com os treinos funcionais!",
                   },
                   {
-                    src: "/videos/funcional2.mp4",
+                    src: "funcional2.mp4",
                     author: "Grupo",
                     quote: "Nunca imaginei que treinar fosse tão divertido.",
                   },
                   {
-                    src: "/videos/joao.mp4",
+                    src: "joao.mp4",
                     author: "Grupo",
                     quote: "Agora treino toda semana com foco e disciplina.",
                   },
                   {
-                    src: "/videos/juliana.mp4",
+                    src: "juliana.mp4",
                     author: "Grupo",
                     quote: "Ganhei força e perdi o medo da academia.",
                   },
                   {
-                    src: "/videos/maria.mp4",
+                    src: "maria.mp4",
                     author: "Nadia",
                     quote:
                       "Voltei a treinar depois de anos parada, graças ao suporte!",
