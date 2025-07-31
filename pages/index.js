@@ -70,10 +70,12 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="text-center md:text-left space-y-6"
             >
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-                Seu estilo de vida saudável começa aqui
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-center md:text-left break-words px-4 md:px-0">
+                Seu estilo de vida saudável <br className="hidden sm:block" />{" "}
+                começa aqui
               </h1>
-              <p className="text-lg text-gray-300">
+
+              <p className="text-base sm:text-lg text-gray-300 text-center px-4 mt-4">
                 Acesse uma plataforma exclusiva com treinos online de alta
                 performance para queimar gordura, ganhar massa e sair do
                 sedentarismo de vez. Aulas guiadas por Dieisson Vasques,
@@ -112,7 +114,7 @@ export default function Home() {
             >
               <div className="absolute bottom-0 w-64 h-6 bg-green-500 opacity-30 blur-2xl rounded-full z-0" />
 
-              <div className="relative w-[400px] h-[400px] rounded-2xl overflow-hidden z-10">
+              <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md aspect-square rounded-2xl overflow-hidden z-10 mx-auto md:mx-0">
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={images[currentIndex]}
