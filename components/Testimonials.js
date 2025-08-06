@@ -17,7 +17,7 @@ export default function Testimonials() {
   });
 
   return (
-    <section id="resultados" className="py-20 bg-black text-white">
+    <section id="resultados" className="py-20 mb-20 bg-black text-white">
       <div className="text-center">
         <h2 className="text-5xl font-extrabold text-green-500">MÉTODO DV</h2>
         <p className="text-xl text-gray-300 mt-4">
@@ -35,9 +35,10 @@ export default function Testimonials() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
           >
-            {/* Mockup com iframe embutido (para telas md+) */}
+            {/* Mockup com iframe embutido (telas md+) */}
             <div className="hidden md:block relative w-[360px] h-[740px] bg-black rounded-[40px] border-4 border-green-600 shadow-xl overflow-hidden">
               <iframe
+                loading="lazy"
                 src={`https://www.youtube.com/embed/${item.youtubeId}?rel=0&modestbranding=1`}
                 className="absolute top-[8%] left-[10%] w-[80%] h-[84%] rounded-[24px]"
                 title={item.alt}
@@ -50,6 +51,7 @@ export default function Testimonials() {
             <div className="md:hidden w-full flex justify-center">
               <div className="aspect-video w-full max-w-[360px] rounded-xl overflow-hidden shadow-lg">
                 <iframe
+                  loading="lazy"
                   src={`https://www.youtube.com/embed/${item.youtubeId}?rel=0&modestbranding=1`}
                   className="w-full h-full"
                   title={item.alt}
