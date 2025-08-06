@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    type: "mockup",
-    videoSrc: "/videos/mockup.mp4",
+    type: "youtube",
+    youtubeId: "AU-M5wIMDPY",
     alt: "Dieisson explicando o método",
   },
 ];
@@ -24,7 +24,8 @@ export default function Testimonials() {
           Conectando Mentes, Transformando Resultados
         </p>
       </div>
-      <div ref={sliderRef} className="keen-slider max-w-3xl mx-auto">
+
+      <div ref={sliderRef} className="keen-slider max-w-3xl mx-auto mt-10">
         {testimonials.map((item, index) => (
           <motion.div
             key={index}
@@ -34,27 +35,28 @@ export default function Testimonials() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
           >
-            {/* Mockup com vídeo embutido - telas md+ */}
-            <div className="hidden md:block relative w-[360px] h-[740px]">
-              <video
-                src={item.videoSrc}
-                controls
-                playsInline
-                className="absolute top-[8%] left-[10%] w-[80%] h-[84%] object-cover rounded-[24px] z-10"
-              />
+            {/* Mockup com iframe embutido (para telas md+) */}
+            <div className="hidden md:block relative w-[360px] h-[740px] bg-black rounded-[40px] border-4 border-green-600 shadow-xl overflow-hidden">
+              <iframe
+                src={`https://www.youtube.com/embed/${item.youtubeId}?rel=0&modestbranding=1`}
+                className="absolute top-[8%] left-[10%] w-[80%] h-[84%] rounded-[24px]"
+                title={item.alt}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
             </div>
 
-            {/* Mobile: só o vídeo */}
+            {/* Mobile: iframe simples */}
             <div className="md:hidden w-full flex justify-center">
-              <video
-                src={item.videoSrc}
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls
-                className="rounded-xl max-w-[360px] shadow-lg"
-              />
+              <div className="aspect-video w-full max-w-[360px] rounded-xl overflow-hidden shadow-lg">
+                <iframe
+                  src={`https://www.youtube.com/embed/${item.youtubeId}?rel=0&modestbranding=1`}
+                  className="w-full h-full"
+                  title={item.alt}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
             </div>
           </motion.div>
         ))}
