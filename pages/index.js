@@ -136,20 +136,20 @@ export default function Home() {
         <section id="sobre" className="py-20 px-6 bg-gray-900 text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-green-400 mb-6">
-              Quem é Dieisson Vasques?
+              Quem é Prof. Dr. Dieisson Vasques?
             </h2>
             <p className="text-lg text-gray-300 mb-6">
               Formado em Educação Física pela Universidade Federal do Rio Grande
-              do Sul (UFRGS) Licenciatura e Bacharelado. Mestrado e atualmente
-              Doutorando no Programa de Pós-Graduação em Ciências do Movimento
-              Humano (PPGCMH) na Universidade Federal do Rio Grande do Sul
-              (UFRGS). Como formação complementar possui certificação em
-              Treinamento Funcional pelo CFSC (Certified Functional Strength
-              Coach) e Instrutor de Hatha Yoga.
+              do Sul (UFRGS) Licenciatura e Bacharelado. Mestrado e Doutorado no
+              Programa de Pós-Graduação em Ciências do Movimento Humano (PPGCMH)
+              na Universidade Federal do Rio Grande do Sul (UFRGS). Como
+              formação complementar, possui certificação em Treinamento
+              Funcional pelo CFSC (Certified Functional Strength Coach) e
+              Instrutor de Hatha Yoga.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-6">
               <p className="text-lg text-green-400 font-semibold">
-                CREF: 033808-G/RS
+                CREFBA: 021687-G/BA
               </p>
               <a
                 href="https://drive.google.com/drive/folders/1uWZzzR490K2HIZZaAaFSosxp3VxM-s6v?usp=drive_link"
@@ -190,7 +190,7 @@ export default function Home() {
               className="space-y-4"
             >
               <h2 className="text-3xl font-bold text-green-400">
-                Parceria com Dra. Bruna Lacerda
+                Parceria com Bruna Lacerda
               </h2>
               <p className="text-lg text-gray-300">
                 Nutricionista formada pela Pontifícia Universidade Católica do
@@ -227,8 +227,8 @@ export default function Home() {
               Comunidade em Ação
             </h2>
             <p className="text-gray-400">
-              Veja membros reais treinando — e compartilhe o seu usando{" "}
-              <strong>#DVTraining</strong>!
+              Assista membros reais em ação e junte-se a nós compartilhando o
+              seu <strong>#DVTraining</strong>!
             </p>
 
             {/* Wrapper do carrossel com botões sobrepostos */}

@@ -13,11 +13,6 @@ export default function VideoLibrary({ data = [] }) {
 
   return (
     <div>
-      {/* Cabeçalho dinâmico */}
-      <h2 className="text-3xl font-bold text-green-500 mb-6">
-        {selectedSeries ? selectedSeries.title : "Biblioteca de Vídeos"}
-      </h2>
-
       <AnimatePresence initial={false}>
         {/* Lista de Séries */}
         {!selectedSeries && (

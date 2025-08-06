@@ -12,10 +12,8 @@ export default function Header() {
     <header className="fixed top-0 left-0 w-full bg-gray-900 text-white shadow z-50">
       <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" legacyBehavior>
-          <a className="flex items-center">
-            <Image src="/images/logo.png" alt="Logo" width={140} height={120} />
-          </a>
+        <Link href="/" className="flex items-center">
+          <Image src="/images/logo.png" alt="Logo" width={140} height={120} />
         </Link>
 
         {/* Botão do menu no mobile */}
@@ -29,14 +27,14 @@ export default function Header() {
 
         {/* Menu Desktop */}
         <nav className="hidden md:flex gap-8 items-center">
-          <Link href="#sobre">
-            <a className="hover:text-green-400">Sobre</a>
+          <Link href="#sobre" className="hover:text-green-400">
+            Sobre
           </Link>
-          <Link href="#planos">
-            <a className="hover:text-green-400">Planos</a>
+          <Link href="#planos" className="hover:text-green-400">
+            Planos
           </Link>
-          <Link href="#contato">
-            <a className="hover:text-green-400">Contato</a>
+          <Link href="#contato" className="hover:text-green-400">
+            Contato
           </Link>
 
           {status === "loading" ? (
@@ -49,8 +47,8 @@ export default function Header() {
               >
                 Sair
               </button>
-              <Link href="/painel">
-                <a className="hover:text-green-400">Área do Aluno</a>
+              <Link href="/painel" className="hover:text-green-400">
+                Área do Aluno
               </Link>
             </>
           ) : (
@@ -67,29 +65,26 @@ export default function Header() {
       {/* Menu Mobile Dropdown */}
       {menuOpen && (
         <nav className="md:hidden bg-gray-800 px-6 pb-6 pt-2 space-y-4 text-center">
-          <Link href="#sobre">
-            <a
-              onClick={() => setMenuOpen(false)}
-              className="block hover:text-green-400"
-            >
-              Sobre
-            </a>
+          <Link
+            href="#sobre"
+            onClick={() => setMenuOpen(false)}
+            className="block hover:text-green-400"
+          >
+            Sobre
           </Link>
-          <Link href="#planos">
-            <a
-              onClick={() => setMenuOpen(false)}
-              className="block hover:text-green-400"
-            >
-              Planos
-            </a>
+          <Link
+            href="#planos"
+            onClick={() => setMenuOpen(false)}
+            className="block hover:text-green-400"
+          >
+            Planos
           </Link>
-          <Link href="#contato">
-            <a
-              onClick={() => setMenuOpen(false)}
-              className="block hover:text-green-400"
-            >
-              Contato
-            </a>
+          <Link
+            href="#contato"
+            onClick={() => setMenuOpen(false)}
+            className="block hover:text-green-400"
+          >
+            Contato
           </Link>
 
           {status === "loading" ? (
@@ -105,13 +100,12 @@ export default function Header() {
               >
                 Sair
               </button>
-              <Link href="/painel">
-                <a
-                  onClick={() => setMenuOpen(false)}
-                  className="block hover:text-green-400"
-                >
-                  Área do Aluno
-                </a>
+              <Link
+                href="/painel"
+                onClick={() => setMenuOpen(false)}
+                className="block hover:text-green-400"
+              >
+                Área do Aluno
               </Link>
             </>
           ) : (

@@ -1,4 +1,3 @@
-// components/DashboardPreview.js
 import React from "react";
 import { ClipboardList, BarChart2, PlayCircle } from "lucide-react";
 import { motion } from "framer-motion";
@@ -32,13 +31,14 @@ export default function DashboardPreview() {
   ];
 
   return (
-    <section id="preview" className="py-20 px-6 bg-gray-800 text-white">
+    <section id="preview" className="py-20 px-6 bg-gray-900 text-white">
       <div className="max-w-6xl mx-auto text-center mb-8">
-        <h2 className="text-3xl font-bold text-green-400">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-green-400">
           Um gostinho do seu Painel
         </h2>
-        <p className="text-gray-400">
-          No seu dashboard você acompanha tudo isso em tempo real.
+        <p className="text-lg text-gray-400">
+          Acompanhe suas métricas e conquistas em tempo real, diretamente no seu
+          dashboard.
         </p>
       </div>
 
@@ -50,23 +50,25 @@ export default function DashboardPreview() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
-            className="bg-gray-900 rounded-xl shadow-lg flex flex-col items-center p-6"
+            className="bg-gray-800 rounded-xl shadow-lg flex flex-col items-center p-6 hover:scale-105 transform transition-all duration-300"
           >
             {s.icon}
-            <h3 className="mt-4 text-2xl font-semibold">{s.value}</h3>
-            <p className="text-gray-400">{s.label}</p>
+            <h3 className="mt-4 text-4xl font-extrabold text-green-400">
+              {s.value}
+            </h3>
+            <p className="text-lg text-gray-300">{s.label}</p>
           </motion.div>
         ))}
       </div>
 
       {/* Mini-gráfico de evolução */}
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="bg-gray-900 p-6 rounded-xl shadow-lg"
+          className="bg-gray-800 p-6 rounded-xl shadow-lg"
         >
-          <h4 className="text-lg text-green-400 mb-4">
+          <h4 className="text-xl text-green-400 mb-4">
             Sua evolução ao longo dos meses
           </h4>
           <MiniChart data={chartData} />
