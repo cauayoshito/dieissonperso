@@ -31,6 +31,49 @@ export default function Home() {
     },
   });
 
+  const comunidadeVideos = [
+    {
+      youtubeId: "ah5lAvvuGP0",
+      author: "Gustavo",
+      quote: "Sensacional esse HIIT, me deu um gás incrível!",
+    },
+    {
+      youtubeId: "ieMc4WHVymA",
+      author: "Solineide",
+      quote: "Minha mobilidade nunca foi tão boa.",
+    },
+    {
+      youtubeId: "vuVYp5HckGc",
+      author: "Igor",
+      quote: "Excelente para força e coordenação.",
+    },
+    {
+      youtubeId: "19xT3QNmiqY",
+      author: "Diego",
+      quote: "Recuperei meu condicionamento com os treinos funcionais!",
+    },
+    {
+      youtubeId: "iZ4WZmSnkxg",
+      author: "Grupo",
+      quote: "Nunca imaginei que treinar fosse tão divertido.",
+    },
+    {
+      youtubeId: "XQRye6L76Lg",
+      author: "Grupo",
+      quote: "Agora treino toda semana com foco e disciplina.",
+    },
+    {
+      youtubeId: "8KOasn3M-3c",
+      author: "Grupo",
+      quote: "Ganhei força e perdi o medo da academia.",
+    },
+    {
+      youtubeId: "lN1dKCK6I3c",
+      author: "Nadia",
+      quote: "Voltei a treinar depois de anos parada, graças ao suporte!",
+    },
+  ];
+
   const images = [
     "/images/personal.jpg",
     "/images/dieisson2.jpg",
@@ -218,75 +261,20 @@ export default function Home() {
           </div>
         </section>
         {/* === COMUNIDADE EM AÇÃO === */}
-        <section
-          id="comunidade"
-          className="py-20 px-6 bg-black text-center relative"
-        >
-          <div className="max-w-6xl mx-auto space-y-6 relative">
-            <h2 className="text-3xl font-bold text-green-500">
-              Comunidade em Ação
-            </h2>
-            <p className="text-gray-400">
-              Assista membros reais em ação e junte-se a nós compartilhando o
-              seu <strong>#DVTraining</strong>!
-            </p>
-
-            {/* Wrapper do carrossel com botões sobrepostos */}
+        <section id="comunidade" className="py-20 px-6 bg-gray-800 text-white">
+          <div className="max-w-6xl mx-auto">
             <div className="relative">
               {/* Carrossel */}
               <div ref={sliderRefCom} className="keen-slider px-4">
-                {[
-                  {
-                    src: "/videos/trailer.mp4",
-                    author: "Gustavo",
-                    quote: "Sensacional esse HIIT, me deu um gás incrível!",
-                  },
-                  {
-                    src: "/videos/pre.mp4",
-                    author: "Solineide",
-                    quote: "Minha mobilidade nunca foi tão boa.",
-                  },
-                  {
-                    src: "/videos/pre2.mp4",
-                    author: "Igor",
-                    quote: "Excelente para força e coordenação.",
-                  },
-                  {
-                    src: "/videos/funcional.mp4",
-                    author: "Diego",
-                    quote:
-                      "Recuperei meu condicionamento com os treinos funcionais!",
-                  },
-                  {
-                    src: "/videos/funcional2.mp4",
-                    author: "Grupo",
-                    quote: "Nunca imaginei que treinar fosse tão divertido.",
-                  },
-                  {
-                    src: "/videos/joao.mp4",
-                    author: "Grupo",
-                    quote: "Agora treino toda semana com foco e disciplina.",
-                  },
-                  {
-                    src: "/videos/juliana.mp4",
-                    author: "Grupo",
-                    quote: "Ganhei força e perdi o medo da academia.",
-                  },
-                  {
-                    src: "/videos/maria.mp4",
-                    author: "Nadia",
-                    quote:
-                      "Voltei a treinar depois de anos parada, graças ao suporte!",
-                  },
-                ].map((item, i) => (
+                {comunidadeVideos.map((item, i) => (
                   <div key={i} className="keen-slider__slide px-4">
                     <div className="aspect-video rounded-xl overflow-hidden bg-black shadow-lg">
-                      <video
-                        src={item.src}
-                        poster={item.poster}
-                        controls
-                        className="w-full h-full object-contain"
-                        aria-label={`Vídeo de ${item.author}`}
+                      <iframe
+                        src={`https://www.youtube.com/embed/${item.youtubeId}`}
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        title={`Vídeo de ${item.author}`}
                       />
                     </div>
                     <div className="mt-4 space-y-1 text-center">
@@ -299,7 +287,7 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* Botões flutuantes laterais */}
+              {/* Botões laterais do carrossel */}
               <button
                 onClick={() => instanceRefCom.current?.prev()}
                 className="absolute top-1/2 left-0 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white px-3 py-2 rounded-full shadow transition z-10"
