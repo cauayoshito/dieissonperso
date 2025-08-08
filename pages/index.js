@@ -11,7 +11,6 @@ import Header from "@/components/Header";
 import DashboardPreview from "@/components/DashboardPreview";
 import VideoPreview from "@/components/VideoPreview";
 import Testimonials from "@/components/Testimonials";
-import { VIDEO_SERIES } from "@/data/videoSeries";
 
 export default function Home() {
   const [sliderRefTransform] = useKeenSlider({
@@ -321,9 +320,6 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-green-400 mb-10">
               Biblioteca de Vídeos
             </h2>
-
-            {/* preview leve das séries */}
-            <VideoPreview series={VIDEO_SERIES} />
 
             <p className="mt-4 text-center text-gray-400">
               Acesso completo aos vídeos incluso no plano. Clique em “Quero esse

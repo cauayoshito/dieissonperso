@@ -1,14 +1,13 @@
-// pages/painel.js
 import Head from "next/head";
-import { getSession } from "next-auth/react"; // ← importa do next-auth/react
+import { getSession } from "next-auth/react";
 import { useState } from "react";
 import { Calendar, PlayCircle, BarChart2 } from "lucide-react";
 
 import Header from "@/components/Header";
 import VideoLibrary from "@/components/VideoLibrary";
-import { VIDEO_SERIES } from "@/data/videoSeries";
+import { getPlaylistVideos } from "@/lib/youtube";
 
-export default function Painel() {
+export default function Painel({ videoSeries }) {
   const [activeTab, setActiveTab] = useState("videos");
 
   return (
@@ -18,11 +17,9 @@ export default function Painel() {
       </Head>
 
       <div className="min-h-screen bg-gray-950 text-white">
-        {/* O Header agora usa useSession() internamente */}
         <Header />
 
         <div className="flex pt-16">
-          {/* Sidebar */}
           <aside className="hidden lg:flex flex-col fixed top-16 left-0 h-[calc(100vh-4rem)] w-48 bg-gray-900 p-6 space-y-4">
             {[
               { id: "ficha", label: "Ficha de Treino", icon: Calendar },
@@ -44,7 +41,6 @@ export default function Painel() {
             ))}
           </aside>
 
-          {/* Conteúdo principal */}
           <main className="flex-1 lg:ml-48 p-6 space-y-8">
             {activeTab === "ficha" && (
               <section>
@@ -62,7 +58,11 @@ export default function Painel() {
                 <h2 className="text-2xl font-bold mb-4">
                   Biblioteca de Vídeos
                 </h2>
-                <VideoLibrary data={VIDEO_SERIES} />
+                {videoSeries.length === 0 ? (
+                  <p className="text-gray-400">Carregando vídeos...</p>
+                ) : (
+                  <VideoLibrary data={videoSeries} />
+                )}
               </section>
             )}
 
@@ -84,7 +84,6 @@ export default function Painel() {
   );
 }
 
-// Protege esta página no servidor
 export async function getServerSideProps(ctx) {
   const session = await getSession(ctx);
   if (!session) {
@@ -95,7 +94,68 @@ export async function getServerSideProps(ctx) {
       },
     };
   }
+
+  const PLAYLISTS = [
+    {
+      id: "PLnggVQN71gHUwpL1O9uxX2WSPiUUvK8Q2",
+      title: "Musculação",
+      customThumbnail: "/images/musculacao.jpg",
+    },
+    {
+      id: "PLnggVQN71gHUMI9YKs98UMBPlj55pFEt0",
+      title: "HIIT",
+      customThumbnail: "/images/hiit.jpg",
+    },
+    {
+      id: "PLnggVQN71gHWQ1W1qr3m1L98CAXsdMrgp",
+      title: "Mobilidade",
+      customThumbnail: "/images/mobilidade.jpg",
+    },
+    {
+      id: "PLnggVQN71gHXxEEJdmPueNW5C2QdwySYr",
+      title: "Yoga",
+      customThumbnail: "/images/yoga.jpg",
+    },
+    {
+      id: "PLnggVQN71gHUStt9PZ4k4Y_2Mu4dO6WCl",
+      title: "Kettlebell",
+      customThumbnail: "/images/kettlebell.jpg",
+    },
+    {
+      id: "PLnggVQN71gHUStt9PZ4k4Y_2Mu4dO6WCl",
+      title: "Bônus",
+      customThumbnail: "/images/bonus.jpg",
+    },
+  ];
+
+  const videoSeries = await Promise.all(
+    PLAYLISTS.map(async ({ id, title, customThumbnail }) => {
+      try {
+        const episodes = await getPlaylistVideos(id);
+        const thumbnail =
+          customThumbnail || episodes[0]?.thumbnail || "/images/sem-thumb.jpg";
+
+        return {
+          id,
+          title,
+          thumbnail,
+          episodes,
+        };
+      } catch (error) {
+        console.error(`Erro ao carregar playlist: ${id}`, error);
+        return {
+          id,
+          title,
+          thumbnail: customThumbnail || "/images/sem-thumb.jpg",
+          episodes: [],
+        };
+      }
+    })
+  );
+
   return {
-    props: {}, // não precisa passar session pro cliente, o Header pega com useSession()
+    props: {
+      videoSeries,
+    },
   };
 }
