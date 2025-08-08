@@ -122,7 +122,7 @@ export async function getServerSideProps(ctx) {
       customThumbnail: "/images/kettlebell.jpg",
     },
     {
-      id: "PLnggVQN71gHUStt9PZ4k4Y_2Mu4dO6WCl",
+      id: "PLnggVQN71gHUcLOcvzgY-NUWGLsPI4oHa",
       title: "Bônus",
       customThumbnail: "/images/bonus.jpg",
     },
